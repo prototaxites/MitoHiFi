@@ -61,7 +61,7 @@ def process_contig(threads_per_contig, circular_size, circular_offset, contigs, 
                     "-j", contig_id+".annotation", "-a", contig_id+".mitogenome.fa",
                     "-r", rel_gbk, "-o", gen_code, "-p", str(threads_per_contig),
                     "--circular-size", "8000"] 
-    subprocess.run(mitofinder_cmd, stderr=subprocess.DEVNULL, stdout=subprocess.DEVNULL)
+    subprocess.run(mitofinder_cmd)
     logging.info(f"{contig_id} annotation done. Annotation log saved on ./potential_contigs/{contig_id}/{contig_id}.annotation_MitoFinder.log")
     # rotates the mitogenome
     mitogenome_gb = os.path.join(contig_id + ".annotation", contig_id + ".annotation_MitoFinder_mitfi_Final_Results", contig_id + ".annotation_mtDNA_contig.gb") 
